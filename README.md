@@ -20,22 +20,19 @@ $ ./xray --help
 ```
 
 2. If you generate an elastic search output file (assume xray.out)
-2a. Create an elastic search cluster on AWS
-2b. Upload the data into elastic search
+  a. Create an elastic search cluster on AWS
+  b. Upload the data into elastic search
 ```
 $ curl --tr-encoding -XPOST 'http://<your_elastic_search_url>/_bulk' --data-binary @xray.out
 ```
-2c. Now you can analyze it in kibana that AWS provides
-
-
+  c. Now you can analyze it in kibana that AWS provides
 3. If you generate a parquet file you can analyze it in a spark cluster
-3a. Go to http://www.databricks.com
-3b. Click on "Manage Account" 
-3c. Select community edition
-3d. Create a cluster - wait for the cluster to come online
-3e. Create a table using the parquet file - (assume "giab")
-3f. Lets count how many objects you indexed
-3f1. Create a notebook - Workspare/users/.../Create/Notebook/Language Scala
+  a. Go to http://www.databricks.com
+  b. Click on "Manage Account" 
+  c. Select community edition
+  d. Create a cluster - wait for the cluster to come online
+  e. Create a table using the parquet file - (assume "giab")
+  f. Create a notebook - Workspare/users/.../Create/Notebook/Language Scala
 ```
 > import sqlContext.implicits._
 > import org.apache.spark.sql.functions._
