@@ -8,7 +8,7 @@ xRay enables simple extraction of your S3 metadata into two data formats
 
 Quick Start
 
-1. Generate a binary for your system 
+- Generate a binary for your system 
 ```
 $ git clone https://github.com/vardhanv/xray.git
 $ cd xray
@@ -19,14 +19,15 @@ $ cd xray-<version>/bin
 $ ./xray --help
 ```
 
-2. If you generate an elastic search output file (assume xray.out)
+- If you generate an elastic search output file (assume xray.out)
   1. Create an elastic search cluster on AWS
   2. Upload the data into elastic search
 ```
 $ curl --tr-encoding -XPOST 'http://<your_elastic_search_url>/_bulk' --data-binary @xray.out
 ```
-  3. Now you can analyze it in kibana that AWS provides
-3. If you generate a parquet file you can analyze it in a spark cluster
+  3. Now you can analyze it in the AWS Elastic Search / Kibana service
+  
+- If you generate a parquet file you can analyze it in a spark cluster
   1. Go to http://www.databricks.com
   2. Click on "Manage Account" 
   3. Select community edition
