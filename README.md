@@ -1,5 +1,5 @@
 #  xRay 
-### Extract metadata from your S3 buckets and analyze in hadoop or search in elastic search
+### Extract metadata from your S3 buckets and analyze in hadoop/spark or search in elastic search
 
 
 xRay enables simple extraction of your S3 metadata into two data formats
