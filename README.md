@@ -1,4 +1,5 @@
-#  xRay - Extract metadata from your S3 buckets and analyze in hadoop or search in elastic search
+#  xRay 
+### Extract metadata from your S3 buckets and analyze in hadoop or search in elastic search
 
 
 xRay enables simple extraction of your S3 metadata into two data formats
@@ -8,6 +9,7 @@ xRay enables simple extraction of your S3 metadata into two data formats
 Quick Start
 
 1. Generate a binary for your system 
+```
 $ git clone https://github.com/vardhanv/xray.git
 $ cd xray
 $ sbt universal:packageBin
@@ -15,11 +17,14 @@ $ cd target/universal
 $ unzip xray-<version>.zip
 $ cd xray-<version>/bin
 $ ./xray --help
+```
 
 2. If you generate an elastic search output file (assume xray.out)
 2a. Create an elastic search cluster on AWS
 2b. Upload the data into elastic search
+```
 $ curl --tr-encoding -XPOST 'http://<your_elastic_search_url>/_bulk' --data-binary @xray.out
+```
 2c. Now you can analyze it in kibana that AWS provides
 
 
@@ -31,6 +36,7 @@ $ curl --tr-encoding -XPOST 'http://<your_elastic_search_url>/_bulk' --data-bina
 3e. Create a table using the parquet file - (assume "giab")
 3f. Lets count how many objects you indexed
 3f1. Create a notebook - Workspare/users/.../Create/Notebook/Language Scala
+```
 > import sqlContext.implicits._
 > import org.apache.spark.sql.functions._
 > val sqlContext = new org.apache.spark.sql.SQLContext(sc)
@@ -42,8 +48,10 @@ $ curl --tr-encoding -XPOST 'http://<your_elastic_search_url>/_bulk' --data-bina
 > val totalTB  = df.select(col("Content_Length")).rdd.map(_(0).asInstanceOf[Long].toDouble/TB).reduce(_+_)
 > val totalTB_unique = df.dropDuplicates("ETag").select(col("Content_Length")).rdd.map(_(0).asInstanceOf[Long].toDouble/TB).reduce(_+_)
 > val totalSavings = totalTB - totalTB_unique
+```
 
 USAGE
+```
 $ ./xray --help
 xRay 1.0
 Usage: xRay [options]
@@ -58,4 +66,4 @@ Usage: xRay [options]
   -r, --region <value>     optional, s3 region.
   -o, --output <value>     optional, output file. default = xray.out
   --help                   prints help text
-
+```
