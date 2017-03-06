@@ -6,7 +6,7 @@ xRay enables simple extraction of your S3 metadata into two data formats
 1. Parquet files that you can import into a spark cluster for analytics
 2. An elastic search file to import into elastic search 
 
-Quick Start
+### Quick Start
 
 - Generate a binary for your system 
 ```
@@ -48,7 +48,7 @@ $ curl --tr-encoding -XPOST 'http://<your_elastic_search_url>/_bulk' --data-bina
 > val totalSavings = totalTB - totalTB_unique
 ```
 
-USAGE
+### USAGE
 ```
 $ ./xray --help
 xRay 1.0
