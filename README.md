@@ -22,9 +22,9 @@ $ ./xray --help
 - If you generate an elastic search output file (assume xray.out)
   1. Create an elastic search cluster on AWS
   2. Upload the data into elastic search
-```
+`
 $ curl --tr-encoding -XPOST 'http://<your_elastic_search_url>/_bulk' --data-binary @xray.out
-```
+`
   3. Now you can analyze it in the AWS Elastic Search / Kibana service
   
 - If you generate a parquet file you can analyze it in a spark cluster
