@@ -45,6 +45,7 @@ object CmdLineParser {
       head("xRay", "1.0")
 
       opt[String]('b', "bucket")
+        .required()
         .action((x, c) => c.copy(bucket = x))
         .text("target s3 bucket")
 
